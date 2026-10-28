@@ -1,0 +1,194 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover internships in development, design, data analytics and cybersecurity.">
+    <title>InternBoard | Discover Your Next Opportunity</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container nav-wrapper">
+        <a href="#home" class="logo" aria-label="InternBoard home">
+            <span class="logo-icon">I</span>
+            Intern<span class="logo-highlight">Board</span>
+        </a>
+        <nav aria-label="Main navigation">
+            <a href="#home">Home</a>
+            <a href="#internships">Internships</a>
+            <a href="#about">About</a>
+            <a href="#internships" class="nav-cta">Explore Roles ↗</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="hero" id="home">
+        <div class="hero-decoration decoration-one"></div>
+        <div class="hero-decoration decoration-two"></div>
+        <div class="container hero-layout">
+            <div class="hero-content">
+                <div class="hero-label"><span class="status-dot"></span> YOUR NEXT CHAPTER STARTS HERE</div>
+                <h1>Find work that<br>moves you <span>forward.</span></h1>
+                <p class="hero-description">
+                    Explore meaningful internship opportunities, develop real-world
+                    skills, and take your first step towards a career you love.
+                </p>
+                <div class="hero-actions">
+                    <a href="#internships" class="primary-button">Explore internships <span>↗</span></a>
+                    <a href="#about" class="secondary-link">Discover our mission →</a>
+                </div>
+                <div class="hero-note">
+                    <span class="note-icon">✦</span>
+                    A little experience. A big step forward.
+                </div>
+            </div>
+
+            <div class="hero-visual" aria-label="Illustration of an internship opportunity card">
+                <div class="visual-orbit orbit-one"></div>
+                <div class="visual-orbit orbit-two"></div>
+                <div class="floating-star star-one">✳</div>
+                <div class="floating-star star-two">✦</div>
+                <div class="opportunity-card">
+                    <div class="opportunity-top">
+                        <span class="opportunity-label">FEATURED OPPORTUNITY</span>
+                        <span class="live-badge"><span></span> Open</span>
+                    </div>
+                    <div class="featured-logo">W</div>
+                    <h2>Your next big thing.</h2>
+                    <p class="featured-company">Discover your potential through practical experience.</p>
+                    <div class="featured-tags"><span>Creative</span><span>Growth</span><span>Learning</span></div>
+                    <div class="featured-bottom"><span>Find your direction</span><span class="arrow-circle">↗</span></div>
+                </div>
+                <div class="floating-note note-top"><span class="mini-icon">✦</span><span><strong>Learn by doing</strong><small>Build real skills</small></span></div>
+                <div class="floating-note note-bottom"><span class="mini-icon purple-icon">↗</span><span><strong>Grow your future</strong><small>One step at a time</small></span></div>
+            </div>
+        </div>
+        <div class="hero-bottom-line"></div>
+    </section>
+
+    <section class="trust-strip" aria-label="Internship board features">
+        <div class="container trust-content">
+            <span>MADE FOR YOUR NEXT STEP</span>
+            <div><span class="trust-symbol">✳</span> Explore</div>
+            <div><span class="trust-symbol">◎</span> Discover</div>
+            <div><span class="trust-symbol">↗</span> Grow</div>
+        </div>
+    </section>
+
+    <section class="internship-section" id="internships">
+        <div class="container">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">YOUR OPPORTUNITY STARTS HERE</p>
+                    <h2>Find your <span>next opportunity.</span></h2>
+                    <p class="section-description">Explore roles, discover new interests, and find a place to grow.</p>
+                </div>
+                <div class="section-stamp"><span>✳</span> YOUR FUTURE<br>LOOKS BRIGHT</div>
+            </div>
+
+            <form id="filter-form" class="filter-panel" role="search">
+                <div class="form-group search-group">
+                    <label for="search-input">Search opportunities</label>
+                    <div class="input-wrap"><span aria-hidden="true">⌕</span><input type="search" id="search-input" placeholder="Role, company or skill..." autocomplete="off"></div>
+                </div>
+                <div class="form-group">
+                    <label for="domain-filter">Explore domain</label>
+                    <select id="domain-filter">
+                        <option value="all">All domains</option>
+                        <option value="frontend">Frontend Development</option>
+                        <option value="backend">Backend Development</option>
+                        <option value="design">UI/UX Design</option>
+                        <option value="data">Data Analytics</option>
+                        <option value="security">Cybersecurity</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mode-filter">Work preference</label>
+                    <select id="mode-filter">
+                        <option value="all">All work modes</option>
+                        <option value="remote">Remote</option>
+                        <option value="hybrid">Hybrid</option>
+                        <option value="onsite">On-site</option>
+                    </select>
+                </div>
+                <button type="reset" class="reset-button">Reset ↺</button>
+            </form>
+
+            <div class="results-toolbar">
+                <p id="results-count" aria-live="polite">Loading opportunities...</p>
+                <span class="results-caption">Curated for curious minds ✦</span>
+            </div>
+
+            <div id="error-message" class="error-message" role="alert" hidden>
+                <h3>Something went wrong</h3>
+                <p>We couldn't display the internships. Please try again.</p>
+                <button type="button" id="retry-button" class="primary-button">Try again ↻</button>
+            </div>
+
+            <div id="empty-state" class="empty-state" hidden>
+                <div class="empty-icon">⌕</div>
+                <h3>No matching opportunities yet</h3>
+                <p>Try another keyword or change your filters to discover more roles.</p>
+                <button type="button" id="empty-reset-button" class="primary-button">Clear all filters</button>
+            </div>
+
+            <div id="internship-list" class="internship-grid" aria-label="Internship results" aria-busy="true"></div>
+
+            <div class="bottom-note"><span>✦</span> Every great journey begins with one opportunity.</div>
+        </div>
+    </section>
+
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-heading">
+                <p class="eyebrow">MORE THAN JUST A JOB SEARCH</p>
+                <h2>Your journey starts <span>with us.</span></h2>
+                <p>We make exploring career opportunities simpler, helping students discover possibilities and prepare for what comes next.</p>
+            </div>
+
+            <div class="about-grid">
+                <article class="about-card">
+                    <div class="about-icon icon-peach">✳</div>
+                    <span class="feature-number">01 / DISCOVER</span>
+                    <h3>Explore possibilities</h3>
+                    <p>Discover opportunities across development, design, data analytics, and cybersecurity.</p>
+                </article>
+                <article class="about-card">
+                    <div class="about-icon icon-lilac">⌘</div>
+                    <span class="feature-number">02 / LEARN</span>
+                    <h3>Build real skills</h3>
+                    <p>Find roles that help you apply what you know and develop practical skills.</p>
+                </article>
+                <article class="about-card">
+                    <div class="about-icon icon-mint">↗</div>
+                    <span class="feature-number">03 / GROW</span>
+                    <h3>Move forward</h3>
+                    <p>Take a confident step towards your goals and keep growing through experience.</p>
+                </article>
+            </div>
+
+            <div class="about-banner">
+                <div><p class="eyebrow">YOUR FUTURE IS WAITING</p><h3>Small beginnings. <span>Big possibilities.</span></h3><p>Your next learning opportunity could be closer than you think.</p></div>
+                <a href="#internships" class="banner-button">Find your opportunity ↗</a>
+                <div class="banner-decoration" aria-hidden="true">✳</div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-main">
+        <a href="#home" class="logo footer-logo"><span class="logo-icon">I</span> Intern<span class="logo-highlight">Board</span></a>
+        <p>Made for the curious. Built for what's next.</p>
+        <a href="#home" class="back-top">Back to top ↑</a>
+    </div>
+    <div class="container footer-bottom"><span>© 2026 InternBoard</span><span>A student internship board project</span></div>
+</footer>
+
+</body>
+</html>
